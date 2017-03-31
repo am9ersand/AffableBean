@@ -28,9 +28,9 @@
 
                 </div>
 
-                <a href="#">
-                    <img src="#" id="logo" alt="Affable Bean logo">
+                <a href="index.jsp">
+                    <img src="img/logo.png" id="logo" alt="Affable Bean logo">
                 </a>
 
-                <img src="#" id="logoText" alt="the affable bean">
+                <img src="img/logoText.png" id="logoText" alt="the affable bean">
             </div>

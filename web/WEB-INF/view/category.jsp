@@ -7,21 +7,22 @@
 --%>
 
 
-<sql:query var="categories" dataSource="jdbc/affablebean">
+<%--<sql:query var="categories" dataSource="jdbc/affablebean">
     SELECT * FROM category
-</sql:query>
+</sql:query>--%>
 
-<sql:query var="selectedCategory" dataSource="jdbc/affablebean">
+<%--<sql:query var="selectedCategory" dataSource="jdbc/affablebean">
     SELECT name FROM category WHERE id = ?
     <sql:param value="${pageContext.request.queryString}"/>
-</sql:query>
-<sql:query var="categoryProducts" dataSource="jdbc/affablebean">
+</sql:query>--%>
+
+<%--<sql:query var="categoryProducts" dataSource="jdbc/affablebean">
     SELECT * FROM product WHERE category_id = ?
     <sql:param value="${pageContext.request.queryString}"/>
-</sql:query> 
+</sql:query>--%>
 
 <div id="categoryLeftColumn">
-    <c:forEach var="category" items="${categories.rows}">
+    <c:forEach var="category" items="${categories}">
 
         <c:choose>
             <c:when test="${category.id == pageContext.request.queryString}">
@@ -41,13 +42,13 @@
         </c:choose>
 
     </c:forEach>
-</div>
+    </div>
 
 <div id="categoryRightColumn">
-    <p id="categoryTitle">${selectedCategory.rows[0].name}</p>
+    <p id="categoryTitle">${selectedCategory.name}</p>
 
     <table id="productTable">
-        <c:forEach var="product" items="${categoryProducts.rows}" varStatus="iter">
+        <c:forEach var="product" items="${categoryProducts}" varStatus="iter">
 
         <tr class="${((iter.index % 2) == 0) ? 'lightBlue' : 'white'}">
             <td>
